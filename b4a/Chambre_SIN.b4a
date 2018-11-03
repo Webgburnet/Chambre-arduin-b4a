@@ -1,0 +1,139 @@
+﻿Version=6.5
+NumberOfModules=0
+Build1=Default,b4a.example
+Build2=test,b4a.test
+Build3=Chambresin,b4a.Chambresin
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
+IconFile=
+NumberOfFiles=1
+File1=layout1.bal
+NumberOfLibraries=5
+Library1=byteconverter
+Library2=core
+Library3=network
+Library4=udp
+Library5=randomaccessfile
+@EndOfDesignText@
+#Region Module Attributes
+	#FullScreen: False
+	#IncludeTitle: True
+	#ApplicationLabel: Chambre SIN
+	#VersionCode: 1
+	#VersionName: 
+	#SupportedOrientations: landscape
+	#CanInstallToExternalStorage: False
+#End Region
+
+Sub Process_Globals
+    
+	
+	
+End Sub
+
+Sub Globals
+	Dim Temp As String
+	Dim Humi As String
+	Dim button1 As Button
+	Dim EditText1 As EditText
+	Dim Label1 As Label
+	Private AChauf As Button
+	Private ALumie As Button
+	Private APrise As Button
+	Private EChauf As Button
+	Private ELumie As Button
+	Private EPrise As Button
+	Private Messages As Label
+	Private Donnee_capteur As Label
+	Private Acquerir_capteur As Button
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+    Activity.LoadLayout("layout1")
+    UDP.Initialise(3200)
+	
+End Sub
+
+Sub button1_click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message=EditText1.Text'"EPrise"
+	Label1.Text=message
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
+	
+Sub UDP_PacketArrived (packet As UDPPacket)
+    Dim message As String
+	message=UDP.reception(packet)
+	If message="acknowledged" Then
+   		Label1.Text=message
+	Else
+		Donnee_capteur.Text=message
+	End If
+		
+End Sub
+Sub EPrise_Click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message="EPrise"
+	Messages.Text="Eteindre Prise"
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
+Sub ELumie_Click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message="ELumie"
+	Messages.Text="Eteindre Lumiere"
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
+Sub EChauf_Click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message="EChauf"
+	Messages.Text="Eteindre Chauffage"
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
+Sub APrise_Click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message="APrise"
+	Messages.Text="Allumer Prise"
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
+Sub ALumie_Click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message="ALumie"
+	Messages.Text="Allumer Lumiere"
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
+Sub AChauf_Click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message="AChauf"
+	Messages.Text="Allumer Chauffage"
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
+
+Sub Acquerir_capteur_Click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message="Acquer"
+	Messages.Text="Acquisition/MAJ de la Température"
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
