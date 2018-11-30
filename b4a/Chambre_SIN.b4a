@@ -5,8 +5,10 @@ Build2=test,b4a.test
 Build3=Chambresin,b4a.Chambresin
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
 IconFile=
-NumberOfFiles=1
-File1=layout1.bal
+NumberOfFiles=3
+File1=layout_502.bal
+File2=layout1.bal
+File3=layout502.bal
 NumberOfLibraries=5
 Library1=byteconverter
 Library2=core
@@ -20,7 +22,7 @@ Library5=randomaccessfile
 	#ApplicationLabel: Chambre SIN
 	#VersionCode: 1
 	#VersionName: 
-	#SupportedOrientations: landscape
+	#SupportedOrientations: portrait
 	#CanInstallToExternalStorage: False
 #End Region
 
@@ -31,8 +33,6 @@ Sub Process_Globals
 End Sub
 
 Sub Globals
-	Dim Temp As String
-	Dim Humi As String
 	Dim button1 As Button
 	Dim EditText1 As EditText
 	Dim Label1 As Label
@@ -42,9 +42,13 @@ Sub Globals
 	Private EChauf As Button
 	Private ELumie As Button
 	Private EPrise As Button
+	Private Arrete As Button
+	Private Descen As Button
+	Private Montee As Button
 	Private Messages As Label
 	Private Donnee_capteur As Label
 	Private Acquerir_capteur As Button
+
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -128,12 +132,42 @@ Sub AChauf_Click
 	UDP.emission("192.168.1.205",5500,emission)
 End Sub
 
+Sub Montee_Click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message="Montee"
+	Messages.Text="Monter le Store"
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
+
+Sub Descen_Click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message="Descen"
+	Messages.Text="Descendre le Store"
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
+
+Sub Arrete_Click
+	Dim emission() As Byte
+	Dim bc As ByteConverter
+	Dim message As String
+	message="Arrete"
+	Messages.Text="Arreter le Store"
+	emission=bc.StringToBytes(message,"ASCII")
+	UDP.emission("192.168.1.205",5500,emission)
+End Sub
+
 Sub Acquerir_capteur_Click
 	Dim emission() As Byte
 	Dim bc As ByteConverter
 	Dim message As String
 	message="Acquer"
-	Messages.Text="Acquisition/MAJ de la Température"
+	Messages.Text="Acquisition des capteurs"
 	emission=bc.StringToBytes(message,"ASCII")
 	UDP.emission("192.168.1.205",5500,emission)
 End Sub

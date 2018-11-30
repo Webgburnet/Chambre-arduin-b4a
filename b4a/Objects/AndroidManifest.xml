@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	package="b4a.Chambresin"
+	package="b4a.test"
 	android:versionCode="1"
 	android:versionName=""
 	android:installLocation="internalOnly">
@@ -20,7 +20,7 @@
 			android:launchMode="singleTop"
 			android:name=".main"
 			android:label="Chambre SIN"
-			android:screenOrientation="landscape">
+			android:screenOrientation="portrait">
 			<intent-filter>
 			   <action android:name="android.intent.action.MAIN" />
 			   <category android:name="android.intent.category.LAUNCHER" />
