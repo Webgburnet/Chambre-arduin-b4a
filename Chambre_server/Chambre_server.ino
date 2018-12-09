@@ -15,11 +15,11 @@
 * pin2 : NC
 * pin3 : NC
 * 
-* pin4 : Digital Output VR monter
-* pin5 : Digital Output VR descendre
-* pin6 : Digital Output Prise
-* pin7 : Digital Output Plafonnier
-* pin8 : Digital Output Radiateur
+* pin4 : Digital Output Radiateur
+* pin5 : Digital Output Prise
+* pin6 : Digital Output Plafonnier
+* pin7 : Digital Output VR monter
+* pin8 : Digital Output VR descendre
 * 
 * pin9 : NC
 * pin10 : NC
@@ -46,11 +46,11 @@
 #define DHTPIN A0
 #define DHTTYPE DHT11   // DHT 11
 
-#define RELAIS_MONTEE 4
-#define RELAIS_DESCENTE 5
-#define RELAIS_PRISE 6
-#define RELAIS_LUMIERE 7
-#define RELAIS_CHAUFFAGE 8
+#define RELAIS_CHAUFFAGE 4
+#define RELAIS_PRISE 5
+#define RELAIS_LUMIERE 6
+#define RELAIS_MONTEE 7
+#define RELAIS_DESCENTE 8
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -58,7 +58,7 @@ BMP280 bmp280;
 
 //Shield Ethernet sans Aoe Numero 2
 byte mac[]={0x90,0xA2,0xDA,0x0F,0x2C,0x28};
-IPAddress ip_shield(192,168,1,205);
+IPAddress ip_shield(192,168,2,205);
 
 EthernetUDP UDP;
 IPAddress remote = UDP.remoteIP();
