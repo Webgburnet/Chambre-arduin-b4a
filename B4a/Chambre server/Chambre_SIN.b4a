@@ -5,10 +5,8 @@ Build2=test,b4a.test
 Build3=Chambresin,b4a.Chambresin
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
 IconFile=
-NumberOfFiles=3
-File1=layout_502.bal
-File2=layout1.bal
-File3=layout502.bal
+NumberOfFiles=1
+File1=layout1.bal
 NumberOfLibraries=5
 Library1=byteconverter
 Library2=core
