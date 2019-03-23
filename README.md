@@ -32,10 +32,10 @@ Mini projet d'une chambre commandée à dsitance sous Arduino et b4a
 * D7 : Digital Output Plafonnier
 * D8 : Digital Output Radiateur
 * D9 : NC
-* D10 : NC
-* D11 : NC
-* D12 : NC
-* D13 : NC 
+* D10 : SS Shield-Ethernet-Arduino
+* D11 : MOSI Shield-Ethernet-Arduino
+* D12 : MISO Shield-Ethernet-Arduino
+* D13 : SCK Shield-Ethernet-Arduino
 
 ### I2C
 * Grove Afficheur LCD RGB

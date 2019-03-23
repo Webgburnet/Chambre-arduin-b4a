@@ -10,22 +10,20 @@
 * A4: NC
 * A5: NC
 * 
-* pin0 : RX rs232 non utilise
-* pin1 : TX rs232 non utilise
-* pin2 : NC
-* pin3 : NC
-* 
-* pin4 : Digital Output VR monter
-* pin5 : Digital Output VR descendre
-* pin6 : Digital Output Prise
-* pin7 : Digital Output Plafonnier
-* pin8 : Digital Output Radiateur
-* 
-* pin9 : NC
-* pin10 : NC
-* pin11 : NC
-* pin12 : NC
-* pin13 : NC 
+* D0 : RX rs232 non utilise
+* D1 : TX rs232 non utilise
+* D2 : NC
+* D3 : NC
+* D4 : Digital Output VR monter
+* D5 : Digital Output VR descendre
+* D6 : Digital Output Prise
+* D7 : Digital Output Plafonnier
+* D8 : Digital Output Radiateur
+* D9 : NC
+* D10 : SS Shield-Ethernet-Arduino
+* D11 : MOSI Shield-Ethernet-Arduino
+* D12 : MISO Shield-Ethernet-Arduino
+* D13 : SCK Shield-Ethernet-Arduino
 * 
 * I2C : Grove Afficheur LCD RGB
 * I2C : Grove Barometre
