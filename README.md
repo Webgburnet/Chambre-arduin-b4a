@@ -24,7 +24,7 @@ Mini projet d'une chambre commandée à dsitance sous Arduino et b4a
 
 | LCD RGB | BME280 |Cable x5| 
 | :-------------: | :-------------: | :-------------: |
-| ![](/composants/SeeedStudio/Grove_LCD_RGB_Backlight.jpg) | ![] (/composants/SeeedStudio/Grove_BME280.jpg) | ![](/composants/SeeedStudio/Grove_Cable.jpg) |
+| ![](/composants/SeeedStudio/Grove_LCD_RGB_Backlight.jpg) | ![](/composants/SeeedStudio/Grove_BME280.jpg) | ![](/composants/SeeedStudio/Grove_Cable.jpg) |
 
 ### Divers
 | Module 8 Relais |
