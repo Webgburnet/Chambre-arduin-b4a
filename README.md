@@ -2,12 +2,37 @@
 Mini projet d'une chambre commandée à dsitance sous Arduino et b4a
 
 ## Composants
+| Arduino | SeeedStudio | B4A | Android |
+| :-----: | :------: | :-----: | :---------: |
+| ![](/icone/Arduino.png) | ![](/icone/Seeed_Studio.png) | ![](/icone/B4A.png) | ![](/icone/Android.png) |
 
-### Arduino_Uno
-![Arduino_Uno]()
+### Arduino
+| Arduino Mega  | Arduino Uno|
+| :-------------: | :-------------: |
+| ![](/composants/Arduino%20Mega.jpg) | ![](/composants/Arduino%20Uno.jpg) |
+
+
+### Shield
+| Shield Ethernet | Shield Grove base | 
+| :-------------: | :-------------: |
+| ![](/composants/Shield_Arduino_Ethernet.jpg) | ![](/composants/SeeedStudio/Shield_Grove_Base.png)  |
+ 
+### SeeedStudio
+| Grove DHT11 | Grove LDR | Grove_PIR (option) | Cable x3|
+| :-------------: | :-------------: | :-------------: | :-------------: |
+| ![](/composants/SeeedStudio/Grove_DHT11.jpg) | ![](/composants/SeeedStudio/Grove_light.jpg) | ![](/composants/SeeedStudio/Grove_PIR_Motion_Sensor.jpg) | ![](/composants/SeeedStudio/Grove_Cable.jpg) |
+
+### Divers
+| Module 8 Relais |
+| :-------------: |
+| ![](/composants/Divers/8_Relais.jpg) |
 
 ## Branchement
-![Fritzing]()
+| Fritzing | Circuits.io |
+| :-------------: | :-------------: |
+| ![](/icone/Fritzing.png) | ![](/icone/Circuits.io.png) |
+
+![]()
 
 ### Shield
 * Shield Grove
