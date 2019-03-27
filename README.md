@@ -32,7 +32,7 @@ Mini projet d'une chambre commandée à dsitance sous Arduino et b4a
 | :-------------: | :-------------: |
 | ![](/icone/Fritzing.png) | ![](/icone/Circuits.io.png) |
 
-![]()
+![](/fritzing/chambre.png)
 
 ### Shield
 * Shield Grove
