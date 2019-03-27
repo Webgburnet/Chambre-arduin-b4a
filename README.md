@@ -18,9 +18,13 @@ Mini projet d'une chambre commandée à dsitance sous Arduino et b4a
 | ![](/composants/Shield_Arduino_Ethernet.jpg) | ![](/composants/SeeedStudio/Shield_Grove_Base.png)  |
  
 ### SeeedStudio
-| DHT11 | LDR | PIR Motion (option) | LCD RGB | Cable x4| 
-| :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
-| ![](/composants/SeeedStudio/Grove_DHT11.jpg) | ![](/composants/SeeedStudio/Grove_light.jpg) | ![](/composants/SeeedStudio/Grove_PIR_Motion_Sensor.jpg) | ![](/composants/SeeedStudio/Grove_LCD_RGB_Backlight.jpg) | ![](/composants/SeeedStudio/Grove_Cable.jpg) |
+| DHT11 | LDR | PIR Motion (option) |
+| :-------------: | :-------------: | :-------------: |
+| ![](/composants/SeeedStudio/Grove_DHT11.jpg) | ![](/composants/SeeedStudio/Grove_light.jpg) | ![](/composants/SeeedStudio/Grove_PIR_Motion_Sensor.jpg) |
+
+| LCD RGB | BME280 |Cable x5| 
+| :-------------: | :-------------: | :-------------: |
+| ![](/composants/SeeedStudio/Grove_LCD_RGB_Backlight.jpg) | ![] (/composants/SeeedStudio/Grove_BME280.jpg) | ![](/composants/SeeedStudio/Grove_Cable.jpg) |
 
 ### Divers
 | Module 8 Relais |
