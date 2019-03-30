@@ -1,10 +1,15 @@
 # Chambre-arduin-b4a
-Mini projet d'une chambre commandée à dsitance sous Arduino et b4a
+Mini projet d'une chambre commandée à distance sous Arduino et b4a
+
+## Logiciels
+| Arduino | B4A | Fritzing | Android |
+| :-----: | :------: | :-----: | :---------: |
+| ![](/icone/Arduino.png) | ![](/icone/B4A.png) | ![](/icone/Fritzing.png) | ![](/icone/Android.png) |
 
 ## Composants
-| Arduino | SeeedStudio | B4A | Android |
-| :-----: | :------: | :-----: | :---------: |
-| ![](/icone/Arduino.png) | ![](/icone/Seeed_Studio.png) | ![](/icone/B4A.png) | ![](/icone/Android.png) |
+| Arduino | SeeedStudio |
+| :-----: | :------: |
+| ![](/icone/Arduino.png) | ![](/icone/Seeed_Studio.png) |
 
 ### Arduino
 | Arduino Mega  | Arduino Uno|
@@ -32,9 +37,9 @@ Mini projet d'une chambre commandée à dsitance sous Arduino et b4a
 | ![](/composants/Divers/8_Relais.jpg) |
 
 ## Branchement
-| Fritzing | Circuits.io |
-| :-------------: | :-------------: |
-| ![](/icone/Fritzing.png) | ![](/icone/Circuits.io.png) |
+| Fritzing |
+| :-------------: |
+| ![](/icone/Fritzing.png) |
 
 ![](/fritzing/chambre.png)
 
@@ -80,3 +85,8 @@ Mini projet d'une chambre commandée à dsitance sous Arduino et b4a
 ### Divers 
 * Ioref : NC
 * Reset : NC
+
+## IHM
+| B4A |
+| :-----: |
+| ![](/icone/B4A.png) |
