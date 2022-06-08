@@ -70,6 +70,11 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   Serial.println("Debut Setup");
+	
+  String fv = WiFi.firmwareVersion();
+  Serial.print("Fireware : ");
+
+  Serial.println(fv);	
   status = WiFi.begin(ssid,pass);
   Serial.print("SSID : ");
   Serial.println(WiFi.SSID());
