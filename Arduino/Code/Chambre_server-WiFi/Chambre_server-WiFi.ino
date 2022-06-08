@@ -13,13 +13,13 @@
 * D0 : RX rs232 non utilise
 * D1 : TX rs232 non utilise
 * D2 : NC
-* D3 : NC
-* D4 : Digital Output VR monter
+* D3 : Digital Output VR monter
+* D4 : Carte SD (SD_CS)
 * D5 : Digital Output VR descendre
 * D6 : Digital Output Prise
-* D7 : Digital Output Plafonnier
-* D8 : Digital Output Radiateur
-* D9 : NC
+* D7 : Handshake avec le WiFi
+* D8 : Digital Output Plafonnier
+* D9 : Digital Output Radiateur
 * D10 : SS Shield-Ethernet-Arduino
 * D11 : MOSI Shield-Ethernet-Arduino
 * D12 : MISO Shield-Ethernet-Arduino
