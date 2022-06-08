@@ -37,12 +37,10 @@
 #include <Wire.h>
 #include <SPI.h>
 #include <rgb_lcd.h>
-#include <SPI.h>
 #include <DHT.h>
-#include <Seeed_BMP280.h>
 
 #define DHTPIN A0
-#define DHTTYPE DHT11   // DHT 11
+#define DHTTYPE DHT11   // DHT 21
 
 #define RELAIS_MONTEE 4
 #define RELAIS_DESCENTE 5
@@ -52,15 +50,16 @@
 
 DHT dht(DHTPIN, DHTTYPE);
 
-BMP280 bmp280;
-
 //Shield Wifi
 int status = WL_IDLE_STATUS;
 char ssid[] = "Sti-2k18-SIN";         // Nom du réseau wifi
 char pass[] = "Sti-2k18-Sin";       // votre mot de passe réseau wifi(utilisez pour WPA ou comme clé pour WEP)
 int keyIndex = 0;                 // votre numéro d'index de clé de réseau (nécessaire uniquement pour WEP)
 unsigned int localPort = 5500;        // port local sur lequel écouter
-WiFiUdp Udp; // Déclaration du type de protocol employé qui sera ici du Udp
+WiFiUDP Udp; // Déclaration du type de protocol employé qui sera ici du Udp
+
+String message2="";
+String entrer_clavier="";
 
 rgb_lcd lcd;
 const int colorR = 255;
@@ -76,7 +75,7 @@ void setup() {
   Serial.println(WiFi.SSID());
 
   // affiche l'adresse IP du Shield WiFi :
-  IPAddress ip(192,168,5,201); // = WiFi.localIP();
+  IPAddress ip= WiFi.localIP();
   WiFi.config(ip);
   Serial.print("Addresse IP : ");
   Serial.println(ip);
@@ -89,11 +88,6 @@ void setup() {
   Udp.begin(localPort);
 
   dht.begin();
-
-  While(!bmp280.init())
-  {
-    Serial.println("Pas de BMP280");
-  }
 
   pinMode( RELAIS_MONTEE , OUTPUT); //Montee du store
   pinMode( RELAIS_DESCENTE , OUTPUT); //Desecente du store
@@ -128,14 +122,13 @@ void setup() {
   Serial.println(" * EChauffage : Eteindre le chauffage");
   Serial.println(" * APrise : Allumer les prises");
   Serial.println(" * EPrise : Eteindre les prises");
+
+  Serial.println(" Fin Setup");
 }
 
 void loop() {
   // Protocole Udp
-  int Size=Udp.parsePacket();
-  char message[Size];
-  String message2;
-  String entrer_clavier;
+  int packetSize = Udp.parsePacket();
 
   //Variable Capteur temperature et humidité
   float h = dht.readHumidity();
@@ -172,31 +165,27 @@ void loop() {
   lcd.setCursor(5,1);
   lcd.print("Lux");
   
-  //Capteur Barometrique
-   float pressure = bmp280.getPressure()/100;
-   float temp=bmp280.getTemperature();
-   float alti=bmp280.calcAltitude(pressure)*100;
-   
-  //Pression atmospherique
-  lcd.setCursor(8,1);
-  lcd.print("P=");
-  lcd.setCursor(10,1);
-  lcd.print(pressure);
-  lcd.setCursor(14,1);
-  lcd.print("Pa");
-
-  if(Size>0)
+  if(packetSize)
   {
     lcd.clear();
-    Udp.read(message,Size);
-
-    //Convertion du message char Udp en string
-    int cases = 0;
-    while (cases != Size)
-    {
-      message2 = message2 + message[cases];
-      cases = cases+1;
+	  
+    Serial.print("Taille du packet recu : ");
+    Serial.println(packetSize);
+    Serial.print("de l'adresse IP ");
+    IPAddress remoteIp = Udp.remoteIP();
+    Serial.print(remoteIp);
+    Serial.print(", sur le port ");
+    Serial.println(Udp.remotePort());
+    // read the packet into packetBufffer
+    int len = Udp.read(packetBuffer, 255);
+    if (len > 0) {
+      packetBuffer[len] = 0;
     }
+    message2=packetBuffer;
+    Serial.println("Contents:");
+    Serial.print(packetBuffer);
+    Serial.print(" ; ");
+    Serial.println(message2);
   
     lcd.setCursor(0,0);
     lcd.print("Msg Udp:");
@@ -205,13 +194,16 @@ void loop() {
     lcd.setCursor(0,1);
     lcd.print("Taille Msg Udp:");
     lcd.setCursor(15,1);
-    lcd.print(Size);
+    lcd.print(packetSize);
     
     delay(500);
     lcd.clear();
 
     if(message2=="Acquer")
     {
+      Serial.print("Le message est : ");
+      Serial.print("Capteur actualisé");
+	    
       lcd.setCursor(0,0);
       lcd.print("Le message est : ");
       lcd.setCursor(0,1);
@@ -242,7 +234,6 @@ void loop() {
     }
     else
     {
-      char  ReplyBuffer[] = "acknowledged";
       Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
       Udp.write(ReplyBuffer);
       Udp.endPacket();
